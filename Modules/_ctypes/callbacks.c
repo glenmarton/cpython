@@ -431,18 +431,22 @@ CThunkObject *_ctypes_alloc_callback(PyObject *callable,
         #pragma clang diagnostic push
         #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #endif
+#ifdef NEVER /* gmj20201216 */
 #if defined(__GNUC__)
         #pragma GCC diagnostic push
         #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 #endif
+#endif /* NEVER */
         result = ffi_prep_closure(p->pcl_write, &p->cif, closure_fcn, p);
 
 #if defined(__clang__) || defined(MACOSX)
         #pragma clang diagnostic pop
 #endif
+#ifdef NEVER /* gmj20201216 */
 #if defined(__GNUC__)
         #pragma GCC diagnostic pop
 #endif
+#endif /* NEVER */
 
 #endif
     }
